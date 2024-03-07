@@ -1,6 +1,17 @@
 # MLScratchPad: Machine Learning from Scratch
 MLScratchPad is a hands-on approach to building classic machine learning models from the ground up, focusing on algorithmic insights without the use of libraries like sklearn.
 
+**Table of Contents**
+1. [Introduction](#introduction)
+2. [Models](#models)
+3. [Features](#features)
+4. [Prerequisites](#prerequisites)
+5. [Usage](#usage)
+   - [Getting Started](#getting-started)
+   - [Using a Learner](#using-a-learner)
+   - [Example Usage](#example-usage)
+6. [License](#license)
+
 ## Introduction
 Welcome to MLScratchPad, a hands-on repository where classic machine learning models are built from the ground up. This project is designed for those who want to understand the nitty-gritty of machine learning algorithms without relying on high-level libraries like scikit-learn. It's perfect for students, hobbyists, and professionals looking to deepen their understanding of the underlying mechanics of machine learning models.
 
@@ -8,7 +19,7 @@ Welcome to MLScratchPad, a hands-on repository where classic machine learning mo
 - **Decision Tree Learner (`DTLearner.py`)**: Implements a basic decision tree learning algorithm.
 - **Linear Regression Learner (`LinRegLearner.py`)**: A foundational model for linear regression analysis.
 - **Random Tree Learner (`RTLearner.py`)**: Implements a random tree learning approach.
-- **AdaBoost Learner (`AdaBoost.py`)**: An implementation of the AdaBoost algorithm for boosting weaker models.
+- **AdaBoost Learner (`AdaBoost.py`)**: *(Note: Currently under development)* An initial implementation of the AdaBoost algorithm for boosting weaker models. This module is not yet available as an object-oriented interface.
 - **Bagging Learner (`BagLearner.py`)**: Introduces the concept of bagging in machine learning.
 - **Gaussian Mixture Model Expectation-Maximization Learner (`GMMEMLearner.py`)**: Applies GMM-EM for clustering and density estimation.
 - **Insane Learner (`InsaneLearner.py`)**: A complex learner that combines various algorithms for enhanced learning capabilities.
@@ -16,7 +27,7 @@ Welcome to MLScratchPad, a hands-on repository where classic machine learning mo
 - **K-Means Learner (`KMeansLearner.py`)**: Implements the K-Means clustering algorithm.
 - **PCA Learner (`PCALearner.py`)**: A learner for Principal Component Analysis (PCA) for dimensionality reduction.
 - **Q-Learning Learner (`QLearner.py`)**: Demonstrates reinforcement learning using the Q-Learning algorithm.
-- **Ridge Regression Learner (`RidgeRegLearner.py`)**: Implements Ridge Regression, a variant of linear regression.
+- **Ridge Regression Learner (`RidgeRegLearner.py`)**: *(Note: Currently under development)* This module presents an initial implementation of Ridge Regression, which is yet to be converted into an object-oriented form.
 - **Spectral Learner (`SpectralLearner.py`)**: Applies spectral clustering techniques for machine learning.
 
 ## Features
