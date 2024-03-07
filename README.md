@@ -103,6 +103,3 @@ print(predictions)
 ```
 
 Remember to consult the documentation in each learner file for specific instructions and parameters.
-
-## License
-This project is open-sourced under the [MIT License](https://opensource.org/licenses/MIT).
