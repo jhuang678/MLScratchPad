@@ -29,12 +29,69 @@ Welcome to MLScratchPad, a hands-on repository where classic machine learning mo
 - Understanding of fundamental machine learning concepts.
 
 ## Usage
-To use any of the learners:
-1. Clone the repository.
-2. Import the desired learner class in your Python script.
-3. Initialize the learner with your data.
-4. Train and test the model as per your requirements.
+This section guides you through the process of using the machine learning models in MLScratchPad. 
 
+### Getting Started
+1. **Clone the Repository**: First, clone MLScratchPad to your local machine using Git:
+   ```bash
+   git clone https://github.com/yourusername/MLScratchPad.git
+   ```
+   Replace `yourusername` with your GitHub username or the URL of the repository.
+
+2. **Navigate to the Repository**: Change your directory to the MLScratchPad folder:
+   ```bash
+   cd MLScratchPad
+   ```
+
+### Using a Learner
+3. **Choose a Learner**: Decide which machine learning model you want to use. For example, if you want to use the Decision Tree Learner, you'll work with `DTLearner.py`.
+
+4. **Prepare Your Python Environment**: Make sure you have Python installed. You can use virtual environments to manage your packages.
+
+5. **Write Your Script**: In your Python environment, create a new Python script or open an interactive session. Import the learner class from the corresponding file. For example:
+   ```python
+   from DTLearner import DTLearner
+   ```
+
+6. **Initialize the Learner**: Create an instance of the learner. For instance, with `DTLearner`, you might do:
+   ```python
+   learner = DTLearner()
+   ```
+
+7. **Load Your Data**: Load the dataset you wish to train on. You can use any dataset in a compatible format (e.g., CSV, Excel, SQL database).
+
+8. **Train the Learner**: Call the appropriate method to train your learner. For example:
+   ```python
+   learner.addEvidence(trainX, trainY)
+   ```
+   where `trainX` is your training input and `trainY` is the training output.
+
+9. **Test the Learner**: Once trained, you can make predictions or evaluate the model using your test data.
+
+### Example Usage
+Here is a simple example of using a learner:
+```python
+# Example with Decision Tree Learner
+from DTLearner import DTLearner
+import numpy as np
+
+# Create a learner instance
+learner = DTLearner()
+
+# Sample data
+trainX = np.array([[1, 2], [3, 4]])
+trainY = np.array([0.5, 1.5])
+
+# Train the learner
+learner.addEvidence(trainX, trainY)
+
+# Make predictions
+testX = np.array([[5, 6]])
+predictions = learner.query(testX)
+print(predictions)
+```
+
+Remember to consult the documentation in each learner file for specific instructions and parameters.
 
 ## License
 This project is open-sourced under the [MIT License](https://opensource.org/licenses/MIT).
