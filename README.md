@@ -121,7 +121,7 @@ trainY, testY = y[:split_index], y[split_index:]
 learner = DTLearner()
 
 # Train the learner
-learner.add_evidence(trainX, trainY)
+learner.fit(trainX, trainY)
 
 # Make predictions
 predictions = learner.query(testX)
@@ -157,7 +157,7 @@ trainY, testY = y[:split_index], y[split_index:]
 learner = RTLearner()
 
 # Train the learner
-learner.add_evidence(trainX, trainY)
+learner.fit(trainX, trainY)
 
 # Make predictions
 predictions = learner.query(testX)
@@ -195,7 +195,7 @@ trainY, testY = y[:split_index], y[split_index:]
 learner = LinRegLearner()
 
 # Train the learner
-learner.add_evidence(trainX, trainY)  # Use 'add_evidence' for training
+learner.fit(trainX, trainY)  # Use 'fit' for training
 
 # Make predictions
 predictions = learner.query(testX)
