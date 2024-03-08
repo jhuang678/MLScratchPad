@@ -9,8 +9,8 @@ MLScratchPad is a hands-on approach to building classic machine learning models 
 5. [Usage](#usage)
    - [Getting Started](#getting-started)
    - [Using a Learner](#using-a-learner)
-   - [Example Usage](#example-usage)
-6. [License](#license)
+6. [Model Implementation Examples](#model-implementation-examples)
+7. [License](#license)
 
 ## Introduction
 Welcome to MLScratchPad, a hands-on repository where classic machine learning models are built from the ground up. This project is designed for those who want to understand the nitty-gritty of machine learning algorithms without relying on high-level libraries like scikit-learn. It's perfect for students, hobbyists, and professionals looking to deepen their understanding of the underlying mechanics of machine learning models.
@@ -79,27 +79,41 @@ This section guides you through the process of using the machine learning models
 
 9. **Test the Learner**: Once trained, you can make predictions or evaluate the model using your test data.
 
-### Example Usage
-Here is a simple example of using a learner:
+Remember to consult the documentation in each learner file for specific instructions and parameters.
+
+## Model Implementation Examples
+
+### DTLearner
 ```python
 # Example with Decision Tree Learner
 from DTLearner import DTLearner
 import numpy as np
+import pandas as pd
+from sklearn.metrics import accuracy_score
+
+
+# Read sample data from a CSV file
+df = pd.read_csv('sample_data.csv')
+y = df['y'].values
+X = df.drop('y', axis=1).values
+
+# Manually split the data into training and testing sets
+split_index = int(len(X) * 0.8)  # 80% for training, 20% for testing
+trainX, testX = X[:split_index], X[split_index:]
+trainY, testY = y[:split_index], y[split_index:]
 
 # Create a learner instance
 learner = DTLearner()
-
-# Sample data
-trainX = np.array([[1, 2], [3, 4]])
-trainY = np.array([0.5, 1.5])
 
 # Train the learner
 learner.addEvidence(trainX, trainY)
 
 # Make predictions
-testX = np.array([[5, 6]])
 predictions = learner.query(testX)
-print(predictions)
+
+# Calculate and print the accuracy
+accuracy = accuracy_score(testY, predictions)
+print("Accuracy:", accuracy)
 ```
 
-Remember to consult the documentation in each learner file for specific instructions and parameters.
+
