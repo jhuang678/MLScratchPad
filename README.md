@@ -14,6 +14,7 @@ MLScratchPad is a hands-on approach to building classic machine learning models 
    - [DTLearner](#dtlearner)
    - [RTLearner](#rtlearner)
    - [LinRegLearner](#linreglearner)
+   - [KNNLearner](#knnlearner)
 7. [Next Step](#next-step)
 
 
@@ -24,6 +25,7 @@ Welcome to MLScratchPad, a hands-on repository where classic machine learning mo
 - **Decision Tree Learner (`DTLearner.py`)**: Implements a basic decision tree learning algorithm.
 - **Linear Regression Learner (`LinRegLearner.py`)**: A foundational model for linear regression analysis.
 - **Random Tree Learner (`RTLearner.py`)**: Implements a random tree learning approach.
+- **KNN Learner (`KNNLearner.py`)**: A versatile learner for both classification and regression tasks using the K-Nearest Neighbors approach.
 - **AdaBoost Learner (`AdaBoost.py`)**: *(Note: Currently under development)* An initial implementation of the AdaBoost algorithm for boosting weaker models. This module is not yet available as an object-oriented interface.
 - **Bagging Learner (`BagLearner.py`)**: Introduces the concept of bagging in machine learning.
 - **Gaussian Mixture Model Expectation-Maximization Learner (`GMMEMLearner.py`)**: Applies GMM-EM for clustering and density estimation.
@@ -32,7 +34,6 @@ Welcome to MLScratchPad, a hands-on repository where classic machine learning mo
 - **K-Means Learner (`KMeansLearner.py`)**: Implements the K-Means clustering algorithm.
 - **PCA Learner (`PCALearner.py`)**: A learner for Principal Component Analysis (PCA) for dimensionality reduction.
 - **Q-Learning Learner (`QLearner.py`)**: Demonstrates reinforcement learning using the Q-Learning algorithm.
-- **Ridge Regression Learner (`RidgeRegLearner.py`)**: *(Note: Currently under development)* This module presents an initial implementation of Ridge Regression, which is yet to be converted into an object-oriented form.
 - **Spectral Learner (`SpectralLearner.py`)**: Applies spectral clustering techniques for machine learning.
 
 ## Features
@@ -207,12 +208,48 @@ print("RMSE:", rmse)
 print("R²:", r2)
 ```
 
+### KNNLearner
+The KNN Learner (`KNNLearner.py`) is adaptable for both classification and regression problems. It automatically detects the nature of the target variable `y` and applies the appropriate method.
+
+```python
+# Example with KNN Learner
+from KNNLearner import KNNLearner
+import numpy as np
+import pandas as pd
+from sklearn.metrics import mean_squared_error, r2_score
+
+# Read sample data from a CSV file
+df = pd.read_csv('sample_data.csv')
+y = df['y'].values
+X = df.drop('y', axis=1).values
+
+# Manually split the data into training and testing sets
+split_index = int(len(X) * 0.8)
+trainX, testX = X[:split_index], X[split_index:]
+trainY, testY = y[:split_index], y[split_index:]
+
+# Create a KNNLearner instance for regression
+learner = KNNLearner(k=5)
+
+# Train the learner
+learner.fit(trainX, trainY)
+
+# Make predictions
+predictions = learner.query(testX)
+
+# Calculate and print the RMSE and R²
+rmse = np.sqrt(mean_squared_error(testY, predictions))
+r2 = r2_score(testY, predictions)
+print("RMSE:", rmse)
+print("R²:", r2)
+```
+
 ## Next Step
 
 As MLScratchPad continues to evolve, the following enhancements are planned:
 - **Ensemble and Clustering Model Instructions**: Update the README.md with detailed guidelines for ensemble models and clustering models.
-- **OOP Conversion**: Transform `AdaBoost.py` and `RidgeRegLearner.py` into object-oriented implementations.
+- **OOP Conversion**: Transform `AdaBoost.py` into object-oriented implementations.
 - **Formal Testing and Visualization**: Introduce formal test datasets and code to evaluate all models, including visualizing clustering performance.
-- **New Model Development**: Develop and integrate KNN and Logistic Regression models into the repository.
+- **New Model Development**: Develop and integrate Classification models into the repository.
 
 
