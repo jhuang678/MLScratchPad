@@ -12,7 +12,7 @@ class DTLearner(object):
             print("\nInitialized Decision Tree:")
             print("Author: ",self.author())
             print("Leaf Size Setting: ",self.leaf_size)
-            print("Please use 'add_evidence(data_x, data_y)' to train a model.",'\n')
+            print("Please use 'fit(data_x, data_y)' to train a model.",'\n')
 
     def author(self):
         """
@@ -21,7 +21,12 @@ class DTLearner(object):
         return "jhuang678"
 
     def best_feature(self, data_x:float, data_y:float):
+
+        if data_x.size == 0 or data_y.size == 0:
+            raise ValueError("Data cannot be empty.")
+
         col_index_list = []
+
         for i in range(data_x.shape[1]):
             if (np.std(data_x[:, i]) == 0):
                 col_index_list.append(0)
@@ -56,7 +61,7 @@ class DTLearner(object):
                 root = np.array([best_x, split_value, 1, left_tree.shape[0] + 1])
             return np.row_stack((root, left_tree, right_tree))
 
-    def add_evidence(self, data_x:float, data_y:float):
+    def fit(self, data_x:float, data_y:float):
         """
         Add training data to learner
         :param data_x: A set of feature values used to train the learner
@@ -108,4 +113,4 @@ class DTLearner(object):
             return pred_y
 
 if __name__ == "__main__":
-    print("This is DTLearner.py. Please use 'DTLearner(leaf_size, verbose)' to initialize.")
+    print("This is DTLearner.py. Please use 'DTLearner(leaf_size, verboseCan you shoe )' to initialize.")

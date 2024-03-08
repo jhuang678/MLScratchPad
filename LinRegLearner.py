@@ -1,4 +1,4 @@
-	  	   		  	  		  		  		    	 		 		   		 		  import numpy as np
+import numpy as np
 
 class LinRegLearner(object):
     """
@@ -10,7 +10,7 @@ class LinRegLearner(object):
         if self.verbose:
             print("\nInitialized Linear Regression:")
             print("Author: ", self.author())
-            print("Please use 'add_evidence(data_x, data_y)' to train a model.")
+            print("Please use 'fit(data_x, data_y)' to train a model.")
 
 
     def author(self):
@@ -19,7 +19,7 @@ class LinRegLearner(object):
         """
         return "jhuang678"
 
-    def add_evidence(self, data_x:float, data_y:float):
+    def fit(self, data_x:float, data_y:float):
         """  		  	   		  	  		  		  		    	 		 		   		 		  
         Add training data to learner  		  	   		  	  		  		  		    	 		 		   		 		  
         :param data_x: A set of feature values used to train the learner  		  	   		  	  		  		  		    	 		 		   		 		  
