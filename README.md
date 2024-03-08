@@ -106,7 +106,7 @@ trainY, testY = y[:split_index], y[split_index:]
 learner = DTLearner()
 
 # Train the learner
-learner.addEvidence(trainX, trainY)
+learner.add_evidence(trainX, trainY)
 
 # Make predictions
 predictions = learner.query(testX)
