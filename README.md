@@ -11,7 +11,7 @@ MLScratchPad is a hands-on approach to building classic machine learning models 
    - [Generating Sample Data](#generating-sample-data)
    - [Using a Learner](#using-a-learner)
 6. [Model Implementation Examples](#model-implementation-examples)
-7. [License](#license)
+
 
 ## Introduction
 Welcome to MLScratchPad, a hands-on repository where classic machine learning models are built from the ground up. This project is designed for those who want to understand the nitty-gritty of machine learning algorithms without relying on high-level libraries like scikit-learn. It's perfect for students, hobbyists, and professionals looking to deepen their understanding of the underlying mechanics of machine learning models.
@@ -127,5 +127,78 @@ r2 = r2_score(testY, predictions)
 print("RMSE:", rmse)
 print("R²:", r2)
 ```
+
+### RTLearner
+The Random Tree Learner (RTLearner) provides an approach to machine learning based on random decision trees. Here's an example to use RTLearner with `sample_data.csv`:
+
+```python
+# Example with Random Tree Learner
+from RTLearner import RTLearner
+import numpy as np
+import pandas as pd
+from sklearn.metrics import mean_squared_error, r2_score
+
+# Read sample data from a CSV file
+df = pd.read_csv('sample_data.csv')
+y = df['y'].values  # 'y' is the target column
+X = df.drop('y', axis=1).values
+
+# Manually split the data into training and testing sets
+split_index = int(len(X) * 0.8)  # 80% for training, 20% for testing
+trainX, testX = X[:split_index], X[split_index:]
+trainY, testY = y[:split_index], y[split_index:]
+
+# Create a RTLearner instance
+learner = RTLearner()
+
+# Train the learner
+learner.addEvidence(trainX, trainY)
+
+# Make predictions
+predictions = learner.query(testX)
+
+# Calculate and print the RMSE and R²
+rmse = np.sqrt(mean_squared_error(testY, predictions))
+r2 = r2_score(testY, predictions)
+print("RMSE:", rmse)
+print("R²:", r2)
+```
+
+### LinRegLearner
+The Linear Regression Learner (`LinRegLearner.py`) is designed for foundational linear regression analysis. Here's how to use it:
+
+```python
+# Example with Linear Regression Learner
+from LinRegLearner import LinRegLearner
+import numpy as np
+import pandas as pd
+from sklearn.metrics import mean_squared_error, r2_score
+
+# Read sample data from a CSV file
+df = pd.read_csv('sample_data.csv')
+y = df['y'].values  # 'y' is the target column
+X = df.drop('y', axis=1).values
+
+# Manually split the data into training and testing sets
+split_index = int(len(X) * 0.8)  # 80% for training, 20% for testing
+trainX, testX = X[:split_index], X[split_index:]
+trainY, testY = y[:split_index], y[split_index:]
+
+# Create a LinRegLearner instance
+learner = LinRegLearner()
+
+# Train the learner
+learner.add_evidence(trainX, trainY)  # Use 'add_evidence' for training
+
+# Make predictions
+predictions = learner.query(testX)
+
+# Calculate and print the RMSE and R²
+rmse = np.sqrt(mean_squared_error(testY, predictions))
+r2 = r2_score(testY, predictions)
+print("RMSE:", rmse)
+print("R²:", r2)
+```
+
 
 
