@@ -2,7 +2,7 @@ import numpy as np
 
 class BagLearner(object):
 
-    def __init__(self, learner:object, kwargs:dict, bags:int, boost:bool = False, verbose:bool = False):
+    def __init__(self, learner: object, kwargs: dict, bags: int, boost: bool = False, verbose: bool = False):
         self.learners = []
         self.bags = bags
         self.boost = boost
@@ -25,7 +25,7 @@ class BagLearner(object):
         """
         return "jhuang678"
 
-    def add_evidence(self, data_x:float, data_y:float):
+    def fit(self, data_x:float, data_y:float):
         """  		  	   		  	  		  		  		    	 		 		   		 		  
         Add training data to learner  		  	   		  	  		  		  		    	 		 		   		 		  
         :param data_x: A set of feature values used to train the learner  		  	   		  	  		  		  		    	 		 		   		 		  
