@@ -14,7 +14,7 @@ MLScratchPad is a hands-on approach to building classic machine learning models 
    - [DTLearner](#dtlearner)
    - [RTLearner](#rtlearner)
    - [LinRegLearner](#linreglearner)
-7. [Next Step](#nest-step)
+7. [Next Step](#next-step)
 
 
 ## Introduction
