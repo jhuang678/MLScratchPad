@@ -8,6 +8,7 @@ MLScratchPad is a hands-on approach to building classic machine learning models 
 4. [Prerequisites](#prerequisites)
 5. [Usage](#usage)
    - [Getting Started](#getting-started)
+   - [Generating Sample Data](#generating-sample-data)
    - [Using a Learner](#using-a-learner)
 6. [Model Implementation Examples](#model-implementation-examples)
 7. [License](#license)
@@ -54,24 +55,34 @@ This section guides you through the process of using the machine learning models
    cd MLScratchPad
    ```
 
+
+### Generate Sample Data
+3. (optional) Before using the learners, you can generate sample data. Use the `GenerateSampleData.py` script included in the repository to create a `sample_data.csv` file, which serves as a dataset for testing the models.
+
+```bash
+python GenerateSampleData.py
+```
+
+The script generates a dataset with various features and a target variable, saved as `sample_data.csv`. This dataset is good for trying out the models.
+
 ### Using a Learner
-3. **Choose a Learner**: Decide which machine learning model you want to use. For example, if you want to use the Decision Tree Learner, you'll work with `DTLearner.py`.
+4. **Choose a Learner**: Decide which machine learning model you want to use. For example, if you want to use the Decision Tree Learner, you'll work with `DTLearner.py`.
 
-4. **Prepare Your Python Environment**: Make sure you have Python installed. You can use virtual environments to manage your packages.
+5. **Prepare Your Python Environment**: Make sure you have Python installed. You can use virtual environments to manage your packages.
 
-5. **Write Your Script**: In your Python environment, create a new Python script or open an interactive session. Import the learner class from the corresponding file. For example:
+6. **Write Your Script**: In your Python environment, create a new Python script or open an interactive session. Import the learner class from the corresponding file. For example:
    ```python
    from DTLearner import DTLearner
    ```
 
-6. **Initialize the Learner**: Create an instance of the learner. For instance, with `DTLearner`, you might do:
+7. **Initialize the Learner**: Create an instance of the learner. For instance, with `DTLearner`, you might do:
    ```python
    learner = DTLearner()
    ```
 
-7. **Load Your Data**: Load the dataset you wish to train on. You can use any dataset in a compatible format (e.g., CSV, Excel, SQL database).
+8. **Load Your Data**: Load the dataset you wish to train on. You can use any dataset in a compatible format (e.g., CSV, Excel, SQL database).
 
-8. **Train the Learner**: Call the appropriate method to train your learner. For example:
+9. **Train the Learner**: Call the appropriate method to train your learner. For example:
    ```python
    learner.addEvidence(trainX, trainY)
    ```
@@ -89,12 +100,11 @@ Remember to consult the documentation in each learner file for specific instruct
 from DTLearner import DTLearner
 import numpy as np
 import pandas as pd
-from sklearn.metrics import accuracy_score
-
+from sklearn.metrics import mean_squared_error, r2_score
 
 # Read sample data from a CSV file
 df = pd.read_csv('sample_data.csv')
-y = df['y'].values
+y = df['y'].values  # 'y' is the target column
 X = df.drop('y', axis=1).values
 
 # Manually split the data into training and testing sets
@@ -106,14 +116,16 @@ trainY, testY = y[:split_index], y[split_index:]
 learner = DTLearner()
 
 # Train the learner
-learner.add_evidence(trainX, trainY)
+learner.addEvidence(trainX, trainY)
 
 # Make predictions
 predictions = learner.query(testX)
 
-# Calculate and print the accuracy
-accuracy = accuracy_score(testY, predictions)
-print("Accuracy:", accuracy)
+# Calculate and print the RMSE and R²
+rmse = np.sqrt(mean_squared_error(testY, predictions))
+r2 = r2_score(testY, predictions)
+print("RMSE:", rmse)
+print("R²:", r2)
 ```
 
 
