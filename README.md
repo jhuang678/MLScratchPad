@@ -11,6 +11,10 @@ MLScratchPad is a hands-on approach to building classic machine learning models 
    - [Generating Sample Data](#generating-sample-data)
    - [Using a Learner](#using-a-learner)
 6. [Model Implementation Examples](#model-implementation-examples)
+   - [DTLearner](#dtlearner)
+   - [RTLearner](#rtlearner)
+   - [LinRegLearner](#linreglearner)
+7. [Next Step](#nest-step)
 
 
 ## Introduction
@@ -95,6 +99,7 @@ Remember to consult the documentation in each learner file for specific instruct
 ## Model Implementation Examples
 
 ### DTLearner
+The Decision Tree Learner (DTLearner) offers a straightforward approach to decision tree modeling. Here's how to use it:
 ```python
 # Example with Decision Tree Learner
 from DTLearner import DTLearner
@@ -152,7 +157,7 @@ trainY, testY = y[:split_index], y[split_index:]
 learner = RTLearner()
 
 # Train the learner
-learner.addEvidence(trainX, trainY)
+learner.add_evidence(trainX, trainY)
 
 # Make predictions
 predictions = learner.query(testX)
@@ -163,6 +168,8 @@ r2 = r2_score(testY, predictions)
 print("RMSE:", rmse)
 print("R²:", r2)
 ```
+
+(Since this model represents a single tree rather than a forest, it's common to observe lower performance compared to more complex models.)
 
 ### LinRegLearner
 The Linear Regression Learner (`LinRegLearner.py`) is designed for foundational linear regression analysis. Here's how to use it:
@@ -200,5 +207,12 @@ print("RMSE:", rmse)
 print("R²:", r2)
 ```
 
+## Next Step
+
+As MLScratchPad continues to evolve, the following enhancements are planned:
+- **Ensemble and Clustering Model Instructions**: Update the README.md with detailed guidelines for ensemble models and clustering models.
+- **OOP Conversion**: Transform `AdaBoost.py` and `RidgeRegLearner.py` into object-oriented implementations.
+- **Formal Testing and Visualization**: Introduce formal test datasets and code to evaluate all models, including visualizing clustering performance.
+- **New Model Development**: Develop and integrate KNN and Logistic Regression models into the repository.
 
 
