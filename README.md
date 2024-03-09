@@ -22,26 +22,26 @@ MLScratchPad is a hands-on approach to building classic machine learning models 
 Welcome to MLScratchPad, a hands-on repository where classic machine learning models are built from the ground up. This project is designed for those who want to understand the nitty-gritty of machine learning algorithms without relying on high-level libraries like scikit-learn. It's perfect for students, hobbyists, and professionals looking to deepen their understanding of the underlying mechanics of machine learning models.
 
 ## Models
-- Classification and Regression
-   - **Decision Tree Learner (`DTLearner.py`)**: Implements a basic decision tree learning algorithm.
-   - **Random Tree Learner (`RTLearner.py`)**: Implements a random tree learning approach.
-   - **KNN Learner (`KNNLearner.py`)**: A versatile learner for both classification and regression tasks using the K-Nearest Neighbors approach.
-- Regression
--    **Linear Regression Learner (`LinRegLearner.py`)**: A foundational model for linear regression analysis.
-- Classification
-   - **AdaBoost Learner (`AdaBoost.py`)**: *(Note: Currently under development)* An initial implementation of the AdaBoost algorithm for boosting weaker models. This module is not yet available as an object-oriented interface.
-- Ensembling
-   - **Bagging Learner (`BagLearner.py`)**: Introduces the concept of bagging in machine learning.
-   - **Insane Learner (`InsaneLearner.py`)**: A complex learner that combines various algorithms for enhanced learning capabilities.
-- Clustering
-   - **K-Means Learner (`KMeansLearner.py`)**: Implements the K-Means clustering algorithm.
-   - **Spectral Learner (`SpectralLearner.py`)**: Applies spectral clustering techniques for machine learning.
-   - **ISOMAP Learner (`ISOMAPLearner.py`)**: Focuses on dimensionality reduction using ISOMAP algorithm.
-   - **Gaussian Mixture Model Expectation-Maximization Learner (`GMMEMLearner.py`)**: Applies GMM-EM for clustering and density estimation.
-- Dimentional Reduction
-   - **PCA Learner (`PCALearner.py`)**: A learner for Principal Component Analysis (PCA) for dimensionality reduction.
--Reinforcement lLearning
-   - **Q-Learning Learner (`QLearner.py`)**: Demonstrates reinforcement learning using the Q-Learning algorithm.
+- **Classification and Regression**
+   - Decision Tree Learner (`DTLearner.py`): Implements a basic decision tree learning algorithm.
+   - Random Tree Learner (`RTLearner.py`): Implements a random tree learning approach.
+   - KNN Learner (`KNNLearner.py`): A versatile learner for both classification and regression tasks using the K-Nearest Neighbors approach.
+- **Regression**
+   - Linear Regression Learner (`LinRegLearner.py`): A foundational model for linear regression analysis.
+- **Classification**
+   - AdaBoost Learner (`AdaBoost.py`): *(Note: Currently under development)* An initial implementation of the AdaBoost algorithm for boosting weaker models. This module is not yet available as an object-oriented interface.
+- **Ensembling**
+   - Bagging Learner (`BagLearner.py`): Introduces the concept of bagging in machine learning.
+   - Insane Learner (`InsaneLearner.py`): A complex learner that combines various algorithms for enhanced learning capabilities.
+- **Clustering**
+   - K-Means Learner (`KMeansLearner.py`): Implements the K-Means clustering algorithm.
+   - Spectral Learner (`SpectralLearner.py`): Applies spectral clustering techniques for machine learning.
+   - ISOMAP Learner (`ISOMAPLearner.py`): Focuses on dimensionality reduction using ISOMAP algorithm.
+   - Gaussian Mixture Model Expectation-Maximization Learner (`GMMEMLearner.py`): Applies GMM-EM for clustering and density estimation.
+- **Dimentional Reduction**
+   - PCA Learner (`PCALearner.py`): A learner for Principal Component Analysis (PCA) for dimensionality reduction.
+- **Reinforcement lLearning**
+   - Q-Learning Learner (`QLearner.py`): Demonstrates reinforcement learning using the Q-Learning algorithm.
 
 ## Features
 - **No High-level Libraries**: All algorithms are implemented without using libraries like sklearn, ensuring a deeper understanding of the algorithms.
